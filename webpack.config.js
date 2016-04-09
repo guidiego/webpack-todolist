@@ -6,7 +6,7 @@ WebPackConfig.output = new Object();
 WebPackConfig.module = new Object();
 WebPackConfig.module.loaders = new Array();
 
-WebPackConfig.entry = './src/main.js';
+WebPackConfig.entry = ['./src/main.js'];
 WebPackConfig.devtool = 'source-map';
 
 WebPackConfig.output.filename = 'bundle.js'
@@ -32,10 +32,10 @@ WebPackConfig.module.loaders.push({
   loader: 'style!css?modules!sass'
 })
 
-WebPackConfig.resolve = {
-  root: path.resolve('./src'),
-  extensions: ['', '.js', '.jsx']
-};
+// WebPackConfig.resolve = {
+//   root: path.resolve('./src'),
+//   extensions: ['', '.js', '.jsx']
+// };
 
 WebPackConfig.module.postcss = [
   require('autoprefixer-core'),
