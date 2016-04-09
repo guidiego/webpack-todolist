@@ -1,6 +1,10 @@
-const sum = (x, y) => x + y;
-const numbers = [1,2,3,4];
+import React from 'react';
+import DOM from 'react-dom';
 
-const reduced = numbers.reduce((a,c) => sum);
+import classes from './main.scss';
 
-console.log('Reduced numbers', reduced);
+const ComponentTest = () => {
+  return (<span className={classes.test}>Hello World</span>)
+}
+
+DOM.render(<ComponentTest />, document.getElementById('app'));
