@@ -1,3 +1,4 @@
+var path = require('path');
 var WebPackConfig = new Object();
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -6,12 +7,13 @@ WebPackConfig.module = new Object();
 WebPackConfig.module.loaders = new Array();
 
 WebPackConfig.entry = './src/main.js';
+WebPackConfig.devtool = 'source-map';
 
 WebPackConfig.output.filename = 'bundle.js'
-WebPackConfig.output.path = './build/assets/scripts'
+WebPackConfig.output.path = __dirname + '/build/assets/scripts'
 
 WebPackConfig.module.loaders.push({
-  test: /.jsx?$/,
+  test: /(\.jsx|\.js)$/,
   loader: 'babel-loader',
   exclude: /node_modules/,
   query: {
@@ -20,9 +22,20 @@ WebPackConfig.module.loaders.push({
 })
 
 WebPackConfig.module.loaders.push({
+  test: /(\.jsx|\.js)$/,
+  loader: "eslint-loader",
+  exclude: /node_modules/
+})
+
+WebPackConfig.module.loaders.push({
   test: /\.scss$/,
   loader: 'style!css?modules!sass'
 })
+
+WebPackConfig.resolve = {
+  root: path.resolve('./src'),
+  extensions: ['', '.js', '.jsx']
+};
 
 WebPackConfig.module.postcss = [
   require('autoprefixer-core'),

@@ -7,4 +7,6 @@ const ComponentTest = () => {
   return (<span className={classes.test}>Hello World</span>)
 }
 
+export const sum = (x,y) => x+y;
+
 DOM.render(<ComponentTest />, document.getElementById('app'));
