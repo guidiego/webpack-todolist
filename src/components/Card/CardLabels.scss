@@ -1,0 +1,32 @@
+.red, .yellow, .blue, .green, .purple {
+  float         : left;
+  width         : 12%;
+  height        : 8px;
+  border-radius : 15%;
+  overflow      : hidden;
+}
+
+.red {
+  background: #B8312F;
+  color: #B8312F;
+}
+
+.yellow {
+  background: #FAC51C;
+  color: #FAC51C;
+}
+
+.blue{
+  background: #2969B0;
+  color: #2969B0;
+}
+
+.gree {
+  background: #41A85F;
+  color: #41A85F;
+}
+
+.purple{
+  background: #553982;
+  color: #553982;
+}

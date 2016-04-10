@@ -5,10 +5,10 @@ var reporters = onDevMode ? ['spec'] : ['spec', 'coverage'];
 
 webpackConfig.devtool = 'inline-source-map';
 if (!onDevMode) {
-  //@TODO Turn it PRELOADER and delete test folder
+  //@TODO Turn it PRELOADER
   webpackConfig.module.postLoaders = [{
     test: /\.js$/,
-    exclude: /(test|node_modules|bower_components)\//,
+    exclude: [/node_modules/, /test/],
     loader: 'istanbul-instrumenter'
   }]
 }
@@ -19,7 +19,8 @@ module.exports = function (config) {
     singleRun: !onDevMode,
     frameworks: [ 'mocha', 'chai', 'sinon', 'sinon-chai' ],
     files: [
-      'tests.webpack.js'
+      './node_modules/phantomjs-polyfill/bind-polyfill.js',
+      'test/bundler.js'
     ],
     plugins: [
       'karma-phantomjs-launcher',
@@ -33,7 +34,7 @@ module.exports = function (config) {
       'karma-sinon-chai'
     ],
     preprocessors: {
-      'tests.webpack.js': [ 'webpack', 'sourcemap' ]
+      'test/bundler.js': [ 'webpack', 'sourcemap' ]
     },
     reporters: reporters,
     webpack: webpackConfig,

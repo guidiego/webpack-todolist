@@ -1,0 +1,21 @@
+.card {
+  position      : relative;
+  padding       : 10px;
+  margin-bottom : 10px;
+  border        : 1px solid #D1D5D8;
+  border-radius : 3px;
+  background    : #FFF;
+  cursor        : pointer;
+
+  &:hover {
+    opacity: 0.75;
+    & > button { display : block }
+  }
+
+  & > button { display: none }
+}
+
+.card-info {
+  margin-top: 10px;
+  i { color : #95A5A6 }
+}

@@ -1,7 +1,7 @@
-const sum = (x, y) => {
-  if (x === 0) return y;
-  if (y === 1) return x;
-  return x + y;
-};
+import React from 'react';
+import DOM from 'react-dom';
+import Board from './views/Board';
 
-export default sum;
+let root = document.getElementById('app');
+
+DOM.render(<Board />, root);
