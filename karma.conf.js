@@ -1,8 +1,17 @@
 var webpackConfig = require('./webpack.config');
+var path = require('path');
 var onDevMode = process.argv.indexOf('--dev') > -1;
 var reporters = onDevMode ? ['spec'] : ['spec', 'coverage'];
 
 webpackConfig.devtool = 'inline-source-map';
+if (!onDevMode) {
+  //@TODO Turn it PRELOADER and delete test folder
+  webpackConfig.module.postLoaders = [{
+    test: /\.js$/,
+    exclude: /(test|node_modules|bower_components)\//,
+    loader: 'istanbul-instrumenter'
+  }]
+}
 
 module.exports = function (config) {
   config.set({
@@ -32,9 +41,11 @@ module.exports = function (config) {
       noInfo: true
     },
     coverageReporter: {
+      dir: 'coverage',
       reporters: [
         {type: 'text-summary'},
-        {type: 'html', dir: 'coverage'}
+        {type: 'html', subdir: 'graph'},
+        {type: 'lcov', subdir: 'lcov' }
       ]
     },
     autoWatch: true

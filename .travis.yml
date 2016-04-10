@@ -1,0 +1,18 @@
+sudo: false
+language: node_js
+node_js:
+  - "5.0"
+
+cache:
+  directories:
+    - node_modules
+
+addons:
+  code_climate:
+    repo_token: 085baf316e83292295cf779f08f741fa671f19a1025f957de6214d5a400e3bde
+
+script:
+  - npm run test:lcov
+
+after_script:
+  - codeclimate-test-reporter < coverage/lcov/lcov.info

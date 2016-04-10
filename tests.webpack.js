@@ -1,6 +1,8 @@
-var context = require.context('./test', true, /.+\.spec\.jsx?$/);
 
-require('core-js/es5');
+const testsContext = require.context('./test/', true, /\.spec\.js$/);
 
-context.keys().forEach(context);
-module.exports = context;
+testsContext.keys().forEach(testsContext);
+
+const componentsContext = require.context('./src/', true, /\.js$/);
+
+componentsContext.keys().forEach(componentsContext);
