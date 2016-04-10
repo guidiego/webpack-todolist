@@ -3,6 +3,7 @@ import sd from 'skin-deep';
 
 import BoardColumn from 'components/Board/BoardColumn';
 import BoardColumnTitle from 'components/Board/BoardColumnTitle';
+import BoardNewCard from 'components/Board/BoardNewCard';
 import CardList from 'components/Card/CardList';
 
 import equalJSX from 'chai-equal-jsx';
@@ -39,6 +40,7 @@ describe('(components/Board - BoardColumn)', () => {
         <div className='board-column'>
           <BoardColumnTitle content={title} />
           <CardList list={listMockup}/>
+          <BoardNewCard />
         </div>
       </div>
     );

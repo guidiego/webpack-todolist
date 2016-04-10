@@ -1,6 +1,7 @@
 import React from 'react';
 
 import BoardColumnTitle from './BoardColumnTitle';
+import BoardNewCard from './BoardNewCard';
 import CardList from 'components/Card/CardList';
 
 import classes from './BoardColumn.scss';
@@ -32,6 +33,7 @@ const BoardColumn = ({title, items = []}) => {
       <div className={classes['board-column']}>
         <BoardColumnTitle content={title} />
         <CardList list={items}/>
+        <BoardNewCard />
       </div>
     </div>
   );

@@ -1,0 +1,23 @@
+.add-card-button {
+  margin: 10px 10px 20px;
+  background: transparent;
+  border: 0px;
+  opacity: 0.7;
+
+  &:hover { opacity : 1 }
+  &:focus { outline : none }
+}
+
+.new-card {
+  margin: 10px 10px 20px;
+}
+
+.textarea-card {
+  width         : 100%;
+  padding       : 10px;
+  border        : 1px solid #D1D5D8;
+  border-radius : 3px;
+  background    : #FFF;
+  outline       : none; 
+  resize        : vertical;
+}
