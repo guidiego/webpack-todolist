@@ -3,15 +3,15 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import rootStore from 'redux-base/rootStore';
 
-import BoardTitleContainer from 'containers/BoardTitleContainer';
 import BoardContainer from 'containers/BoardContainer';
 import TaskModalContainer from 'containers/TaskModalContainer';
+
+import classes from './Board.scss';
 
 const Board = () => {
   return (
     <Provider store={rootStore}>
-      <div className='container'>
-        <BoardTitleContainer />
+      <div className={classes.board + ' container'}>
         <BoardContainer />
         <TaskModalContainer />
       </div>

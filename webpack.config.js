@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 var WebPackConfig = new Object();
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var onDevMode = process.argv.indexOf('--dev') > -1;
@@ -18,7 +19,12 @@ WebPackConfig.entry = ['./src/main.js'];
 WebPackConfig.devtool = 'source-map';
 
 WebPackConfig.output.filename = 'bundle.js'
-WebPackConfig.output.path = __dirname + '/build/assets/scripts'
+WebPackConfig.output.path = __dirname + '/build/'
+
+
+WebPackConfig.plugins = [
+  new webpack.IgnorePlugin(/ReactContext/)
+]
 
 WebPackConfig.module.loaders.push({
   test: /(\.jsx|\.js)$/,
@@ -69,6 +75,9 @@ WebPackConfig.module.loaders.push({
   ]
 });
 
+WebPackConfig.sassLoader = {
+  includePaths: path.resolve('src/styles/')
+};
 
 WebPackConfig.resolve = {
   root: path.resolve('src/'),
@@ -78,10 +87,12 @@ WebPackConfig.resolve = {
 WebPackConfig.module.postcss = [
   require('autoprefixer-core'),
   require('postcss-color-rebeccapurple')
-]
+];
 
-WebPackConfig.module.plugins = [
-  new ExtractTextPlugin('style.css', { allChunks: true })
-]
+WebPackConfig.plugins.push(
+  new ExtractTextPlugin('style.css', {
+    allChunks: true
+  })
+);
 
 module.exports = WebPackConfig;
