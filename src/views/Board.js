@@ -5,6 +5,7 @@ import rootStore from 'redux-base/rootStore';
 
 import BoardTitleContainer from 'containers/BoardTitleContainer';
 import BoardContainer from 'containers/BoardContainer';
+import TaskModalContainer from 'containers/TaskModalContainer';
 
 const Board = () => {
   return (
@@ -12,6 +13,7 @@ const Board = () => {
       <div className='container'>
         <BoardTitleContainer />
         <BoardContainer />
+        <TaskModalContainer />
       </div>
     </Provider>
   );

@@ -11,7 +11,7 @@ import equalJSX from 'chai-equal-jsx';
 chai.use(equalJSX);
 
 describe('(components/Card - Card)', () => {
-  it('Should render Card component with description', function() {
+  it('Should render Card component with description', () => {
     const task = {
       id: 0,
       title: 'Bla bla bla bla',
@@ -21,11 +21,12 @@ describe('(components/Card - Card)', () => {
       date: new Date(),
       description: 'meeeeeeeee'
     };
-    const tree = sd.shallowRender(<Card task={task} />);
+    const noRef = () => {};
+    const tree = sd.shallowRender(<Card task={task} onClick={noRef} />);
     const vdom = tree.getRenderOutput();
 
     expect(vdom).to.equalJSX(
-      <div className='card'>
+      <div onClick={noRef} className='card'>
         <CardLabels labelList={task.labels} />
         <CardTitle title={task.title} />
         <CardOptionsButton />
@@ -41,7 +42,7 @@ describe('(components/Card - Card)', () => {
     );
   });
 
-  it('Should render Card component without description', function() {
+  it('Should render Card component without description', () => {
     const task = {
       id: 0,
       title: 'Bla bla bla bla',
@@ -51,11 +52,12 @@ describe('(components/Card - Card)', () => {
       date: new Date(),
       description: undefined
     };
-    const tree = sd.shallowRender(<Card task={task} />);
+    const noRef = () => {};
+    const tree = sd.shallowRender(<Card task={task} onClick={noRef} />);
     const vdom = tree.getRenderOutput();
 
     expect(vdom).to.equalJSX(
-      <div className='card'>
+      <div onClick={noRef} className='card'>
         <CardLabels labelList={task.labels} />
         <CardTitle title={task.title} />
         <CardOptionsButton />

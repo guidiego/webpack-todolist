@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Card from './Card';
+import CardContainer from 'containers/CardContainer';
 
 import classes from './CardList.scss';
 
 const mapTaskToCard = (task) => {
-  return (<Card key={task.id} task={task} />);
+  return (<CardContainer key={task.id} task={task} />);
 };
 
 const CardList = ({list}) => {

@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
 import taskReducer from 'reducers/taskReducer';
+import modalReducer from 'reducers/modalReducer';
 
 export default combineReducers({
-  task: taskReducer
+  task: taskReducer,
+  modal: modalReducer
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import sd from 'skin-deep';
 
 import CardList from 'components/Card/CardList';
-import Card from 'components/Card/Card';
+import CardContainer from 'containers/CardContainer';
 
 import equalJSX from 'chai-equal-jsx';
 chai.use(equalJSX);
@@ -34,8 +34,8 @@ describe('(components/Card - CardList)', () => {
 
     expect(vdom).to.equalJSX(
       <div className='card-list'>
-        <Card key={list[0].id} task={list[0]} />
-        <Card key={list[1].id} task={list[1]} />
+        <CardContainer key={list[0].id} task={list[0]} />
+        <CardContainer key={list[1].id} task={list[1]} />
       </div>
     );
   });
