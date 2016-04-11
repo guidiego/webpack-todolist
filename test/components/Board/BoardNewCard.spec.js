@@ -24,13 +24,13 @@ describe('(components/Board - BoardNewCard)', () => {
     const tree = sd.shallowRender(<BoardNewCard />);
     const boardNewCardInstance = tree.getMountedInstance();
 
-    boardNewCardInstance.onClick();
+    boardNewCardInstance.openTaskCreator();
     const vdom = tree.getRenderOutput();
-    
+
     expect(vdom).to.equalJSX(
-      <div className='new-card' onClick={noRef}>
-        <textarea className='textarea-card' />
-        <button className='btn btn-success'> Add this card </button>
+      <div className='new-card'>
+        <textarea onChange={noRef} value='' className='textarea-card' />
+        <button onClick={noRef} className='btn btn-success'> Add this card </button>
       </div>
     );
   });

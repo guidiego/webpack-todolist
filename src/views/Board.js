@@ -1,14 +1,19 @@
 import React from 'react';
 
-import BoardTitleContainer from '../containers/BoardTitleContainer';
-import BoardContainer from '../containers/BoardContainer';
+import { Provider } from 'react-redux';
+import rootStore from 'redux-base/rootStore';
+
+import BoardTitleContainer from 'containers/BoardTitleContainer';
+import BoardContainer from 'containers/BoardContainer';
 
 const Board = () => {
   return (
-    <div className='container'>
-      <BoardTitleContainer />
-      <BoardContainer />
-    </div>
+    <Provider store={rootStore}>
+      <div className='container'>
+        <BoardTitleContainer />
+        <BoardContainer />
+      </div>
+    </Provider>
   );
 };
 

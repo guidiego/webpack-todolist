@@ -1,0 +1,6 @@
+export const ADD_CARD_TO_LIST = 'ADD_CARD_TO_LIST';
+export const REMOVE_CARD_TO_LIST = 'REMOVE_CARD_TO_LIST';
+export const MOVE_CARD_TO_LIST = 'REMOVE_CARD_TO_LIST';
+
+export const CREATE_CARD = 'CREATE_CARD';
+export const REMOVE_CARD = 'REMOVE_CARD';

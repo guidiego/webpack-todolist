@@ -8,7 +8,7 @@ const mapToLabelComponent = (label) => {
   return (<label key={hash} className={classes[label.color]}> {label.string} </label>);
 };
 
-const CardLabels = ({labelList}) => {
+const CardLabels = ({labelList = []}) => {
   const labelComponents = labelList.map(mapToLabelComponent);
 
   return (

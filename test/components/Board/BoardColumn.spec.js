@@ -3,8 +3,8 @@ import sd from 'skin-deep';
 
 import BoardColumn from 'components/Board/BoardColumn';
 import BoardColumnTitle from 'components/Board/BoardColumnTitle';
-import BoardNewCard from 'components/Board/BoardNewCard';
 import CardList from 'components/Card/CardList';
+import BoardAddCardContainer from 'containers/BoardAddCardContainer';
 
 import equalJSX from 'chai-equal-jsx';
 chai.use(equalJSX);
@@ -40,7 +40,7 @@ describe('(components/Board - BoardColumn)', () => {
         <div className='board-column'>
           <BoardColumnTitle content={title} />
           <CardList list={listMockup}/>
-          <BoardNewCard />
+          <BoardAddCardContainer list={title.toLowerCase()} />
         </div>
       </div>
     );
