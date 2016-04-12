@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import CardLabels from './CardLabels';
 import CardTitle from './CardTitle';
@@ -27,6 +27,13 @@ const Card = ({task, onClick}) => {
       </div>
     </div>
   );
+};
+
+Card.propTypes = {
+  /** Card Task **/
+  task: PropTypes.object.isRequired,
+  /** Open Modal Dispatcher **/
+  onClick: PropTypes.func.isRequired
 };
 
 export default Card;

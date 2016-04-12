@@ -16,10 +16,19 @@ A simple ToDoList using great things :)
   - Chai
 
 ### NPM Commands
+For generate propTypes based documentation `npm run docs`
+For serve a static server `npm run serve`
 For build the app you can use `npm run build`  
 For development you can use (watcher) `npm run build:dev`  
 For generate coverage data and test your app you should use `npm run test`  
 For TDD or watch tests while you coding you should use `npm run test:dev`
+`OBS: TESTS ARE CRASHED BY SOME LIBS, CORRECT IN PROGRESS`
 
-### DOCS
-In development
+### Install & Execute
+```shell
+  git clone https://github.com/guidiego/webpack-todolist.git
+  cd webpack-todolist
+  npm install #wait for a long time...
+  npm run build
+  npm run serve
+```

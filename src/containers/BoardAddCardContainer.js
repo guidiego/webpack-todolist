@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import { connect } from 'react-redux';
 
@@ -19,10 +19,15 @@ export const mapDispatchToProps = (dispatch, {list}) => {
   };
 };
 
-export const BoardAddCardContainer = ({ lastId, createCard, addToList }) => {
+export const BoardAddCardContainer = ({ lastId, createCard }) => {
   return (
     <BoardNewCard lastId={lastId} createCard={createCard}/>
   );
+};
+
+BoardAddCardContainer.propTypes = {
+  lastId: PropTypes.number,
+  createCard: PropTypes.func
 };
 
 export default connect(

@@ -50,7 +50,9 @@ class BoardNewCard extends Component {
 };
 
 BoardNewCard.propTypes = {
+  /** The last id in state **/
   lastId: PropTypes.number,
+  /** CreateCard dispatcher **/
   createCard: PropTypes.func
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import BoardColumnTitle from './BoardColumnTitle';
 import CardList from 'components/Card/CardList';
@@ -9,7 +9,7 @@ import { List } from 'immutable';
 
 import classes from './BoardColumn.scss';
 
-const BoardColumn = ({title, items = List()}) => {
+const BoardColumn = ({title, items}) => {
   return (
     <div className='col-md-4'>
       <div className={classes['board-column']}>
@@ -19,6 +19,18 @@ const BoardColumn = ({title, items = List()}) => {
       </div>
     </div>
   );
+};
+
+BoardColumn.propTypes = {
+  /** Column Title **/
+  title: PropTypes.string,
+  /** A Immutable List of tasks **/
+  items: PropTypes.object
+};
+
+BoardColumn.defaultProps = {
+  title: '',
+  items: List()
 };
 
 export default BoardColumn;

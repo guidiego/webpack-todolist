@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
+import { List } from 'immutable';
 import classes from './CardLabels.scss';
 
 const mapToLabelComponent = (label) => {
@@ -8,7 +9,7 @@ const mapToLabelComponent = (label) => {
   return (<label key={hash} className={classes[label.color]}> {label.string} </label>);
 };
 
-const CardLabels = ({labelList = []}) => {
+const CardLabels = ({labelList}) => {
   const labelComponents = labelList.map(mapToLabelComponent);
 
   return (
@@ -18,6 +19,14 @@ const CardLabels = ({labelList = []}) => {
       </div>
     </div>
   );
+};
+
+CardLabels.propTypes = {
+  labelList: PropTypes.instanceOf(List)
+};
+
+CardLabels.defaultProps = {
+  labelList: List()
 };
 
 export default CardLabels;

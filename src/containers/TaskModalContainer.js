@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
+import { Map } from 'immutable';
 import { connect } from 'react-redux';
 import { Modal } from 'react-bootstrap';
 import { updateCard, removeCard } from 'actions/taskAction';
@@ -64,6 +65,16 @@ export const TaskModalContainer = ({ task, editTask, closeTaskModal, moveToTodo,
       </Modal.Footer>
     </Modal>
   );
+};
+
+TaskModalContainer.propTypes = {
+  task: PropTypes.instanceOf(Map),
+  editTask: PropTypes.func,
+  closeTaskModal: PropTypes.func,
+  moveToTodo: PropTypes.func,
+  moveToWip: PropTypes.func,
+  moveToDone: PropTypes.func,
+  deleteTask: PropTypes.func
 };
 
 export default connect(
