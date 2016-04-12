@@ -1,7 +1,6 @@
 import {
   CREATE_CARD,
   UPDATE_CARD,
-  MOVE_CARD,
   REMOVE_CARD
 } from 'constants/ActionTypes';
 
@@ -12,10 +11,10 @@ export const createCard = (task) => {
   };
 };
 
-export const updateCard = (task) => {
+export const updateCard = (id, key, value) => {
   return {
     type: UPDATE_CARD,
-    task
+    id, key, value
   };
 };
 
@@ -26,12 +25,4 @@ export const removeCard = (task) => {
   };
 };
 
-export const moveCard = (task, list) => {
-  return {
-    type: MOVE_CARD,
-    task,
-    list
-  };
-};
-
-export default { createCard, updateCard, removeCard, moveCard };
+export default { createCard, updateCard, removeCard };

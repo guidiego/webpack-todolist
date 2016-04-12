@@ -5,8 +5,7 @@ import classes from './TaskModalTitle.scss';
 class TaskModalTitle extends Component {
   constructor(props) {
     super(props);
-    this.state = {editingMode: false, titleValue: props.task.title};
-    this.task = this.props.task ? this.props.task : {};
+    this.state = {editingMode: false, titleValue: props.value};
     this.handlerDescptChange = this.handlerDescptChange.bind(this);
     this.callEditMode = this.callEditMode.bind(this);
     this.saveDescription = this.saveDescription.bind(this);
@@ -21,8 +20,9 @@ class TaskModalTitle extends Component {
   }
 
   saveDescription() {
-    this.task.title = this.state.titleValue;
-    this.props.editTitle(this.task);
+    const title = this.state.titleValue;
+    const {id} = this.props;
+    this.props.editTask(id, 'title', title);
     this.setState({editingMode: false, titleValue: ''});
   }
 
@@ -30,7 +30,7 @@ class TaskModalTitle extends Component {
     if (!this.state.editingMode) {
       return (
         <div onClick={this.callEditMode} className={classes['title-holder']}>
-          {this.task.title}
+          {this.props.value}
         </div>
       );
     }
@@ -44,8 +44,9 @@ class TaskModalTitle extends Component {
 };
 
 TaskModalTitle.propTypes = {
-  task: PropTypes.object,
-  editTitle: PropTypes.func
+  id: PropTypes.number,
+  value: PropTypes.string,
+  editTask: PropTypes.func
 };
 
 export default TaskModalTitle;

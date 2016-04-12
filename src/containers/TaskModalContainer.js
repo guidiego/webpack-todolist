@@ -8,44 +8,43 @@ import { closeTaskModal } from 'actions/modalAction';
 import TaskModalDescription from 'components/Modal/TaskModalDescription';
 import TaskModalTitle from 'components/Modal/TaskModalTitle';
 
-export const mapStateToProps = ({modal}) => {
-  let task = modal.get('task', undefined);
-  return { task };
+export const mapStateToProps = ({modal, task}) => {
+  let id = modal.get('task', undefined);
+  let selectedTask = task.get('list').filter(task => task.id === id).get(0);
+  return { task: selectedTask };
 };
 
 export const mapDispatchToProps = (dispatch) => {
   return {
-    editTask: (editedTask) => { dispatch(updateCard(editedTask)); },
+    editTask: (id, key, value) => { dispatch(updateCard(id, key, value)); },
     closeTaskModal: () => { dispatch(closeTaskModal()); },
     deleteTask: (task) => { dispatch(removeCard(task)); dispatch(closeTaskModal());},
-    moveToTodo: (task) => { dispatch(moveCard(task, 'todo')); dispatch(closeTaskModal());},
-    moveToWip: (task) => { dispatch(moveCard(task, 'wip')); dispatch(closeTaskModal());},
-    moveToDone: (task) => { dispatch(moveCard(task, 'done')); dispatch(closeTaskModal());}
+    moveToTodo: (id) => { dispatch(updateCard(id, 'status', 'todo')); dispatch(closeTaskModal());},
+    moveToWip: (id) => { dispatch(updateCard(id, 'status', 'wip')); dispatch(closeTaskModal());},
+    moveToDone: (id) => { dispatch(updateCard(id, 'status', 'done')); dispatch(closeTaskModal());}
   };
 };
 
 export const TaskModalContainer = ({ task, editTask, closeTaskModal, moveToTodo,
     moveToWip, moveToDone, deleteTask }) => {
-  let todoButton, wipButton, doneButton, deleteButton;
+  if (!task) return null;
 
-  if (task) {
-    task = JSON.parse(JSON.stringify(task));
-    todoButton = task.status !== 'todo' && <button className='btn btn-primary' onClick={moveToTodo.bind(null,task)}> To Todo </button>;
-    wipButton = task.status !== 'wip' && <button className='btn btn-primary' onClick={moveToWip.bind(null,task)}> To Wip </button>;
-    doneButton = task.status !== 'done' && <button className='btn btn-primary' onClick={moveToDone.bind(null,task)}> To Done </button>;
-    deleteButton = <button className='btn btn-danger' onClick={deleteTask.bind(null,task)}> Delete </button>;
-  }
+  let todoButton = task.status !== 'todo' && <button className='btn btn-primary' onClick={moveToTodo.bind(null,task.id)}> To Todo </button>;
+  let wipButton = task.status !== 'wip' && <button className='btn btn-primary' onClick={moveToWip.bind(null,task.id)}> To Wip </button>;
+  let doneButton = task.status !== 'done' && <button className='btn btn-primary' onClick={moveToDone.bind(null,task.id)}> To Done </button>;
+  let deleteButton = <button className='btn btn-danger' onClick={deleteTask.bind(null,task)}> Delete </button>;
+
 
   return (
     <Modal show={task} onHide={closeTaskModal}>
       <Modal.Header>
         <Modal.Title>
-          <TaskModalTitle task={task} editTitle={editTask}/>
+          <TaskModalTitle id={task.id} value={task.title} editTask={editTask}/>
         </Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
-        <TaskModalDescription task={task} editDescription={editTask}/>
+        <TaskModalDescription id={task.id} value={task.description} editTask={editTask}/>
       </Modal.Body>
 
       <Modal.Footer>

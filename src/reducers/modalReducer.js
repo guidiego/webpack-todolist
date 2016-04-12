@@ -5,8 +5,8 @@ import {
 
 import { Map } from 'immutable';
 
-function openTaskModal(state, task) {
-  const nextState = state.set('task', task);
+function openTaskModal(state, { id }) {
+  const nextState = state.set('task', id);
 
   return nextState;
 };

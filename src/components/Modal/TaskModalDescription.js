@@ -5,8 +5,7 @@ import classes from './TaskModalDescription.scss';
 class TaskModalDescription extends Component {
   constructor(props) {
     super(props);
-    this.state = {editingMode: false, descriptValue: props.task.description};
-    this.task = this.props.task ? this.props.task : {};
+    this.state = {editingMode: false, descriptValue: props.value};
     this.handlerDescptChange = this.handlerDescptChange.bind(this);
     this.callEditMode = this.callEditMode.bind(this);
     this.saveDescription = this.saveDescription.bind(this);
@@ -21,8 +20,9 @@ class TaskModalDescription extends Component {
   }
 
   saveDescription() {
-    this.task.description = this.state.descriptValue;
-    this.props.editDescription(this.task);
+    const description = this.state.descriptValue;
+    const { id } = this.props
+    this.props.editTask(id, 'description', description);
     this.setState({editingMode: false, descriptValue: ''});
   }
 
@@ -31,7 +31,7 @@ class TaskModalDescription extends Component {
       return (
         <div onClick={this.callEditMode} className={classes['description-holder']}>
           <label className={classes['label']}>Description</label>
-          <span className={classes['description']}>{this.task.description}</span>
+          <span className={classes['description']}>{this.props.value}</span>
         </div>
       );
     }
@@ -45,7 +45,8 @@ class TaskModalDescription extends Component {
 };
 
 TaskModalDescription.propTypes = {
-  task: PropTypes.object,
+  id: PropTypes.number,
+  value: PropTypes.string,
   editDescription: PropTypes.func
 };
 
