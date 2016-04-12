@@ -21,8 +21,7 @@ describe('(actions) taskAction', () => {
       type: REMOVE_CARD,
       taskId: 0
     };
-    const task = {id: resultMock.taskId};
-    const result = removeCard(task);
+    const result = removeCard(resultMock.taskId);
 
     expect(result).to.deep.eql(resultMock);
   });

@@ -10,12 +10,15 @@ import BoardNewCard from 'components/Board/BoardNewCard';
 
 describe('(containers) BoardAddCardContainer', () => {
   it('should return the corrected props for "mapStateToProps"', () => {
-    const task = Map({
+    const task = {
       lastId: 0,
       list: List()
+    };
+    const state = Map({
+      task : Map(task)
     });
 
-    const result = mapStateToProps({task});
+    const result = mapStateToProps(state);
     expect(result).to.have.property('lastId', 0);
     expect(result).to.not.have.property('list');
   });

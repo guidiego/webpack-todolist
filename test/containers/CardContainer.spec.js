@@ -10,17 +10,24 @@ import Card from 'components/Card/Card';
 
 
 describe('(containers) CardContainer', () => {
+  let task;
+  beforeEach(() => {
+    task = Map({
+      id: 0,
+      title: 'example:title',
+      description: 'example:descp'
+    });
+  });
+
   it('should return the corrected props of "mapDispatchToProps"', () => {
     const dispatchMock = sinon.spy();
-    const task = 'example:task';
     const result = mapDispatchToProps(dispatchMock, {task});
-    
+
     result.openTaskModal();
     expect(dispatchMock).to.be.calledOnce;
   });
 
   it('should render correctly the TaskModalContainer closed', () => {
-    const task = 'task:example';
     const openTaskModal = () => {};
     const tree = sd.shallowRender(<CardContainer task={task} openTaskModal={openTaskModal} />);
     const vdom = tree.getRenderOutput();

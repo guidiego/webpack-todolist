@@ -6,7 +6,7 @@ import rootStore from 'redux-base/rootStore';
 import BoardContainer from 'containers/BoardContainer';
 import TaskModalContainer from 'containers/TaskModalContainer';
 
-import classes from './Board.scss';
+import classes from 'styles/base.scss';
 
 const Board = () => {
   return (

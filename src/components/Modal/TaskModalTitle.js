@@ -37,14 +37,20 @@ class TaskModalTitle extends Component {
       return (
         <div onClick={this.callEditMode} className={classes['title-holder']}>
           {this.props.value}
+          <i className='glyphicon glyphicon-pencil' />
         </div>
       );
     }
 
     return (
-      <form onSubmit={this.saveDescription}>
-        <input value={this.state.titleValue} onChange={this.handlerDescptChange}
-            className={classes['title-input']} placeholder='Title...' />
+      <form onSubmit={this.saveDescription} className='row'>
+        <div className='col-md-9'>
+          <input value={this.state.titleValue} onChange={this.handlerDescptChange}
+              className={classes['title-input']} placeholder='Title...' />
+        </div>
+        <div className='col-md-3'>
+          <button className='btn btn-success btn-block'>Save</button>
+        </div>
       </form>
     );
   }

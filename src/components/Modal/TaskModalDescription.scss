@@ -1,5 +1,16 @@
-.description-holder {
+@import "~styles/colors.scss";
 
+.description-holder {
+  width: 100%;
+  cursor: pointer;
+  i {
+    float: right;
+    display: none;
+    margin-right: 10px;
+    font-size: 30px;
+    color : $neutral-tint;
+  }
+  &:hover i {display: block}
 }
 
 .label {
@@ -14,9 +25,11 @@
 
 .description-textarea {
   width: 100%;
-  height: 220px;
+  height: 180px;
+  padding: 20px;
   resize: none;
-  background: #f1f1f1;
-  border:1px solid #ddd;
+  background: $lighter-tint;
+  border:1px solid $neutral-tint;
+  border-radius: 10px;
   outline: none;
 }

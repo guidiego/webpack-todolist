@@ -1,6 +1,8 @@
+@import "~styles/colors.scss";
+
 .board-column{
-  border        : 1px solid #D1D5D8;
+  border        : 1px solid $neutral-tint;
   border-radius : 4px;
   box-shadow    : 0 3px 9px rgba(30, 30, 30, 0.2);
-  background    : #ECF0F1;
+  background    : $lighter-tint;
 }

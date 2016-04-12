@@ -71,7 +71,7 @@ WebPackConfig.module.loaders.push({
 });
 
 WebPackConfig.sassLoader = {
-  includePaths: path.resolve('src/styles/')
+  includePaths: [path.resolve('src/styles/')]
 };
 
 WebPackConfig.resolve = {
