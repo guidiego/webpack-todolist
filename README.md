@@ -3,7 +3,17 @@
 A simple ToDoList using great things :)
 
 ### Stack
-In development...
+- [**React**](https://facebook.github.io/react/) Use to create WebComponents
+- [**Redux**](http://redux.js.org/) Used for abstract Flux archicheture
+  - Redux Storage - https://github.com/michaelcontento/redux-storage
+  - Redux ImmutableJS - https://github.com/indexiatech/redux-immutablejs
+- [**WebPack**](http://webpack.github.io/) Used for construct the bundle
+- [**ImmutableJS**](https://facebook.github.io/immutable-js) Used for create Immutable states :)
+- [**Karma**](https://karma-runner.github.io/0.13/index.html) Used for create the test Base on aplication
+  - Mocha
+  - Sinon
+  - skin-deep
+  - Chai
 
 ### NPM Commands
 For build the app you can use `npm run build`  
