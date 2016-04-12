@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 import { List } from 'immutable';
 import { connect } from 'react-redux';
@@ -22,6 +22,12 @@ export const BoardContainer = ({ todo, wip, done }) => {
       <BoardColumn title='DONE' items={done}/>
     </div>
   );
+};
+
+BoardContainer.propTypes = {
+  todo: PropTypes.instanceOf(List),
+  wip: PropTypes.instanceOf(List),
+  done: PropTypes.instanceOf(List)
 };
 
 export default connect(

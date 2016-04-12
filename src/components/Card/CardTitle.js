@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import classes from './CardTitle.scss';
 
@@ -8,6 +8,10 @@ const CardTitle = ({title}) => {
       {title}
     </div>
   );
+};
+
+CardTitle.propTypes = {
+  title: PropTypes.string
 };
 
 export default CardTitle;

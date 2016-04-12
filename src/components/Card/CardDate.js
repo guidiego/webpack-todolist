@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import classes from './CardDate.scss';
 
@@ -16,6 +16,13 @@ const CardDate = ({date}) => {
       {day}/{month}/{date.getFullYear()} - {hours}:{minutes}
     </span>
   );
+};
+
+CardDate.propTypes = {
+  date: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.date
+  ])
 };
 
 export default CardDate;

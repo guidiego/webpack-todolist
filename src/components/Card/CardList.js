@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import CardContainer from 'containers/CardContainer';
+import { List } from 'immutable';
 
 import classes from './CardList.scss';
 
@@ -14,6 +15,10 @@ const CardList = ({list}) => {
       {list.map(mapTaskToCard)}
     </div>
   );
+};
+
+CardList.propTypes = {
+  list: PropTypes.instanceOf(List)
 };
 
 export default CardList;
