@@ -14,8 +14,9 @@ describe('(containers) BoardContainer', () => {
       lastId:0,
       list: List()
     });
-
-    const result = mapStateToProps({task});
+    const state = Map({task: task})
+    const result = mapStateToProps(state);
+    
     expect(result).to.have.property('todo', List());
     expect(result).to.have.property('wip', List());
     expect(result).to.have.property('done', List());

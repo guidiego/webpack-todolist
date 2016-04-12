@@ -1,3 +1,5 @@
+@import "~styles/colors.scss";
+
 .red, .yellow, .blue, .green, .purple {
   float         : left;
   width         : 12%;
@@ -7,26 +9,26 @@
 }
 
 .red {
-  background: #B8312F;
-  color: #B8312F;
+  background: $red;
+  color:  $red;
 }
 
 .yellow {
-  background: #FAC51C;
-  color: #FAC51C;
+  background: $yellow;
+  color: $yellow;
 }
 
 .blue{
-  background: #2969B0;
-  color: #2969B0;
+  background: $blue;
+  color: $blue;
 }
 
-.gree {
-  background: #41A85F;
-  color: #41A85F;
+.green {
+  background: $green;
+  color: $green;
 }
 
-.purple{
-  background: #553982;
-  color: #553982;
+.purple {
+  background: $purple;
+  color: $purple;
 }

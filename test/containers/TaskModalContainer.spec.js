@@ -11,31 +11,17 @@ import { Modal } from 'react-bootstrap';
 
 describe('(containers) TaskModalContainer', () => {
   it('should return the corrected pros pro "mapStateToProps"', () => {
-    const modal = Map({
-      task: Map()
-    });
+    const state = Map({
+      task: Map({
+        lastId: 1,
+        list: List.of(Map({id:1}))
+      }),
+      modal: Map({
+        task: 1
+      })
+    })
 
-    const result = mapStateToProps({modal});
-    expect(result).to.have.property('task', Map())
-  });
-
-  it('should render correctly the TaskModalContainer closed', () => {
-    const tree = sd.shallowRender(<TaskModalContainer task={undefined}/>);
-    const vdom = tree.getRenderOutput();
-
-    expect(vdom).to.equalJSX(
-      <Modal show={undefined}>
-        <Modal.Header>
-          <Modal.Title></Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body>
-          One fine body...
-        </Modal.Body>
-
-        <Modal.Footer>
-        </Modal.Footer>
-      </Modal>
-    );
+    const result = mapStateToProps(state);
+    expect(result).to.have.property('task', state.get('task').get('list').get(0))
   });
 });

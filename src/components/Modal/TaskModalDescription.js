@@ -36,7 +36,10 @@ class TaskModalDescription extends Component {
     if (!this.state.editingMode) {
       return (
         <div onClick={this.callEditMode} className={classes['description-holder']}>
-          <label className={classes['label']}>Description</label>
+          <label className={classes['label']}>
+            Description
+            <i className='glyphicon glyphicon-pencil' />
+          </label>
           <span className={classes['description']}>{this.props.value}</span>
         </div>
       );
@@ -46,6 +49,7 @@ class TaskModalDescription extends Component {
       <form onSubmit={this.saveDescription}>
         <textarea value={this.state.descriptValue} onChange={this.handlerDescptChange}
             className={classes['description-textarea']} placeholder='Description...' />
+        <button type='submit' className='btn btn-success btn-block'>Save</button>
       </form>
     );
   }

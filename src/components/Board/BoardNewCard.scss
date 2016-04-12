@@ -1,3 +1,6 @@
+@import "~styles/colors.scss";
+
+
 .add-card-button {
   width      : 100%;
   padding    : 10px 10px 20px;
@@ -16,7 +19,7 @@
 .textarea-card {
   width         : 100%;
   padding       : 10px;
-  border        : 1px solid #D1D5D8;
+  border        : 1px solid $neutral-tint;
   border-radius : 3px;
   background    : #FFF;
   outline       : none;

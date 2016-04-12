@@ -1,6 +1,22 @@
+@import "~styles/colors.scss";
+
+.title-holder{
+  width: 100%;
+  cursor: pointer;
+  i {
+    float: right;
+    display: none;
+    font-size: 18px;
+    color : $neutral-tint;
+  }
+  &:hover i {display: block}
+}
+
 .title-input {
   width: 100%;
-  background: #f1f1f1;
-  border:1px solid #ddd;
+  padding: 5px 20px;
+  background: $lighter-tint;
+  border:1px solid $neutral-tint;
+  border-radius: 10px;
   outline: none;
 }

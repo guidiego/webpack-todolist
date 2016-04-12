@@ -6,12 +6,10 @@ import {
 
 import { Map, List } from 'immutable';
 
-import TaskModel from 'models/TaskModel';
-
 function createCard(state, task) {
   task.id = state.get('lastId');
   const setLastId = state.set('lastId', task.id + 1);
-  const newList = state.get('list').push(new TaskModel(task));
+  const newList = state.get('list').push(Map(task));
   const nextState = setLastId.set('list', newList);
 
   return nextState;

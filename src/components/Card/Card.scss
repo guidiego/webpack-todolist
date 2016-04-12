@@ -1,8 +1,10 @@
+@import "~styles/colors.scss";
+
 .card {
   position      : relative;
   padding       : 10px;
   margin-bottom : 10px;
-  border        : 1px solid #D1D5D8;
+  border        : 1px solid $neutral-tint;
   border-radius : 3px;
   background    : #FFF;
   cursor        : pointer;
@@ -17,5 +19,5 @@
 
 .card-info {
   margin-top: 10px;
-  i { color : #95A5A6 }
+  i { color : $dark-tint }
 }

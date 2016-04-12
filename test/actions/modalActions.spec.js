@@ -9,9 +9,9 @@ describe('(actions) taskAction', () => {
   it('should return correct object from "openTaskModal"', () => {
     const resultMock = {
       type: OPEN_TASK_MODAL,
-      task: 'example:Task'
+      id: 1
     };
-    const result = openTaskModal(resultMock.task);
+    const result = openTaskModal(resultMock.id);
 
     expect(result).to.deep.eql(resultMock);
   });

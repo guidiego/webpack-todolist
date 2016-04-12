@@ -28,10 +28,10 @@ describe('(components/Board - BoardNewCard)', () => {
     const vdom = tree.getRenderOutput();
 
     expect(vdom).to.equalJSX(
-      <div className='new-card'>
+      <form onSubmit={noRef} className='new-card'>
         <textarea onChange={noRef} value='' className='textarea-card' />
-        <button onClick={noRef} className='btn btn-success'> Add this card </button>
-      </div>
+        <button type='submit' className='btn btn-success'> Add this card </button>
+      </form>
     );
   });
 });

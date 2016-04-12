@@ -35,13 +35,13 @@ export const TaskModalContainer = ({ task, editTask, closeTaskModal, moveToTodo,
   let taskID = task.get('id');
 
   let todoButton = status !== 'todo' &&
-    <button className='btn btn-primary' onClick={moveToTodo.bind(null, taskID)}> To Todo </button>;
+    <button className='btn btn-primary pull-left' onClick={moveToTodo.bind(null, taskID)}> To Todo </button>;
 
   let wipButton = status !== 'wip' &&
-    <button className='btn btn-primary' onClick={moveToWip.bind(null, taskID)}> To Wip </button>;
+    <button className='btn btn-primary pull-left' onClick={moveToWip.bind(null, taskID)}> To Wip </button>;
 
   let doneButton = status !== 'done' &&
-    <button className='btn btn-primary' onClick={moveToDone.bind(null, taskID)}> To Done </button>;
+    <button className='btn btn-primary pull-left' onClick={moveToDone.bind(null, taskID)}> To Done </button>;
 
   let deleteButton = <button className='btn btn-danger' onClick={deleteTask.bind(null, task)}> Delete </button>;
 
@@ -61,6 +61,7 @@ export const TaskModalContainer = ({ task, editTask, closeTaskModal, moveToTodo,
         {todoButton}
         {wipButton}
         {doneButton}
+        <button className='btn btn-default' onClick={closeTaskModal}> Close </button>
         {deleteButton}
       </Modal.Footer>
     </Modal>
