@@ -15,15 +15,20 @@ class BoardNewCard extends Component {
     this.setState({addCardMode: 'on'});
   }
 
-  submitTask() {
+  submitTask(e) {
+    if (e) e.preventDefault();
     let task = {id: this.props.lastId, title: this.state.taskTitle, date: new Date()};
 
-    this.props.createCard(task);
     this.setState({taskTitle: '', addCardMode: 'off'});
+    this.props.createCard(task);
   }
 
   textAreaChange(e) {
-    this.setState({taskTitle: e.target.value});
+    if (e.target.value.match(/\n/g)) {
+      this.submitTask();
+    } else {
+      this.setState({taskTitle: e.target.value});
+    }
   }
 
   render() {
@@ -36,10 +41,10 @@ class BoardNewCard extends Component {
     }
 
     return (
-      <div className={classes['new-card']}>
+      <form onSubmit={this.submitTask} className={classes['new-card']}>
         <textarea onChange={this.textAreaChange} value={this.state.taskTitle} className={classes['textarea-card']} />
-        <button onClick={this.submitTask} className='btn btn-success'> Add this card </button>
-      </div>
+        <button type='submit' className='btn btn-success'> Add this card </button>
+      </form>
     );
   }
 };

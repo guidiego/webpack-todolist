@@ -16,12 +16,18 @@ class TaskModalDescription extends Component {
   }
 
   handlerDescptChange(e) {
-    this.setState({descriptValue: e.target.value});
+    if (e.target.value.match(/\n/g)) {
+      this.saveDescription();
+    } else {
+      this.setState({descriptValue: e.target.value});
+    }
   }
 
-  saveDescription() {
+  saveDescription(e) {
+    if (e) e.preventDefault();
     const description = this.state.descriptValue;
-    const { id } = this.props
+    const { id } = this.props;
+
     this.props.editTask(id, 'description', description);
     this.setState({editingMode: false, descriptValue: ''});
   }
@@ -37,9 +43,10 @@ class TaskModalDescription extends Component {
     }
 
     return (
-      <textarea value={this.state.descriptValue} onChange={this.handlerDescptChange}
-          className={classes['description-textarea']} placeholder='Description...'
-          onBlur={this.saveDescription} />
+      <form onSubmit={this.saveDescription}>
+        <textarea value={this.state.descriptValue} onChange={this.handlerDescptChange}
+            className={classes['description-textarea']} placeholder='Description...' />
+      </form>
     );
   }
 };
@@ -47,7 +54,7 @@ class TaskModalDescription extends Component {
 TaskModalDescription.propTypes = {
   id: PropTypes.number,
   value: PropTypes.string,
-  editDescription: PropTypes.func
+  editTask: PropTypes.func
 };
 
 export default TaskModalDescription;

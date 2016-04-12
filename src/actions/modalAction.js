@@ -3,10 +3,10 @@ import {
   CLOSE_TAKS_MODAL
 } from 'constants/ActionTypes';
 
-export const openTaskModal = (task) => {
+export const openTaskModal = (id) => {
   return {
     type: OPEN_TASK_MODAL,
-    task
+    id
   };
 };
 

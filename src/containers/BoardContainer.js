@@ -1,13 +1,15 @@
 import React from 'react';
 
+import { List } from 'immutable';
 import { connect } from 'react-redux';
 
 import BoardColumn from '../components/Board/BoardColumn';
 
-export const mapStateToProps = ({task}) => {
-  const todo = task.get('list').filter(task => task.status === 'todo');
-  const wip = task.get('list').filter(task => task.status === 'wip');
-  const done = task.get('list').filter(task => task.status === 'done');
+export const mapStateToProps = (state) => {
+  const list = state.getIn(['task', 'list'], List());
+  const todo = list.filter(task => task.get('status') === 'todo');
+  const wip = list.filter(task => task.get('status') === 'wip');
+  const done = list.filter(task => task.get('status') === 'done');
 
   return { todo, wip, done };
 };

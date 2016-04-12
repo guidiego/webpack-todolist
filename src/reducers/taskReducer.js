@@ -18,11 +18,8 @@ function createCard(state, task) {
 };
 
 function updateCard(state, { id, key, value }) {
-  const findIndex = (task) => task.id === id;
-  const updated = (task) => {
-    const newTask = task.set(key, value);
-    return newTask;
-  };
+  const findIndex = (task) => task.get('id') === id;
+  const updated = (task) => task.set(key, value);
   const list = state.get('list');
   const updatedList = list.update(list.findIndex(findIndex), updated);
   const nextState = state.set('list', updatedList);
@@ -31,7 +28,7 @@ function updateCard(state, { id, key, value }) {
 }
 
 function removeCard(state, taskId) {
-  const newList = state.get('list').filter(task => task.id !== taskId);
+  const newList = state.get('list').filter(task => task.get('id') !== taskId);
   const nextState = state.set('list', newList);
 
   return nextState;

@@ -5,7 +5,7 @@ import CardContainer from 'containers/CardContainer';
 import classes from './CardList.scss';
 
 const mapTaskToCard = (task) => {
-  return (<CardContainer key={task.id} task={task} />);
+  return (<CardContainer key={task.get('id')} task={task} />);
 };
 
 const CardList = ({list}) => {

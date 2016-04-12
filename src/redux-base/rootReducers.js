@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-immutablejs';
 
 import taskReducer from 'reducers/taskReducer';
 import modalReducer from 'reducers/modalReducer';

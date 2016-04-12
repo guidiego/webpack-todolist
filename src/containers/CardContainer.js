@@ -8,7 +8,7 @@ import Card from 'components/Card/Card';
 
 export const mapDispatchToProps = (dispatch, {task}) => {
   return {
-    openTaskModal: () => { dispatch(openTaskModal(task)); }
+    openTaskModal: () => { dispatch(openTaskModal(task.get('id'))); }
   };
 };
 

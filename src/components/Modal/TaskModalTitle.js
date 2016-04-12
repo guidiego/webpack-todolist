@@ -16,12 +16,18 @@ class TaskModalTitle extends Component {
   }
 
   handlerDescptChange(e) {
-    this.setState({titleValue: e.target.value});
+    if (e.target.value.match(/\n/g)) {
+      this.saveDescription();
+    } else {
+      this.setState({titleValue: e.target.value});
+    }
   }
 
-  saveDescription() {
+  saveDescription(e) {
+    if (e) e.preventDefault();
     const title = this.state.titleValue;
     const {id} = this.props;
+
     this.props.editTask(id, 'title', title);
     this.setState({editingMode: false, titleValue: ''});
   }
@@ -36,9 +42,10 @@ class TaskModalTitle extends Component {
     }
 
     return (
-      <input value={this.state.titleValue} onChange={this.handlerDescptChange}
-          className={classes['title-input']} placeholder='Title...'
-          onBlur={this.saveDescription} />
+      <form onSubmit={this.saveDescription}>
+        <input value={this.state.titleValue} onChange={this.handlerDescptChange}
+            className={classes['title-input']} placeholder='Title...' />
+      </form>
     );
   }
 };

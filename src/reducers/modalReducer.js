@@ -24,7 +24,7 @@ const initialState = Map({
 export const modalReducer = (state = initialState, action) => {
   switch (action.type) {
     case OPEN_TASK_MODAL:
-      return openTaskModal(state, action.task);
+      return openTaskModal(state, action);
     case CLOSE_TAKS_MODAL:
       return closeTaskModal(state);
     default:

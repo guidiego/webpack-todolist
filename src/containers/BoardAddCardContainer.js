@@ -6,8 +6,8 @@ import BoardNewCard from 'components/Board/BoardNewCard';
 
 import { createCard } from 'actions/taskAction';
 
-export const mapStateToProps = ({task}) => {
-  return { lastId: task.get('lastId') };
+export const mapStateToProps = (state) => {
+  return { lastId: state.get(['task', 'lastId'], 0) };
 };
 
 export const mapDispatchToProps = (dispatch, {list}) => {

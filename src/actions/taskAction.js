@@ -18,10 +18,10 @@ export const updateCard = (id, key, value) => {
   };
 };
 
-export const removeCard = (task) => {
+export const removeCard = (id) => {
   return {
     type: REMOVE_CARD,
-    taskId: task.id
+    taskId: id
   };
 };
 

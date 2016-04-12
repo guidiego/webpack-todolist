@@ -19,12 +19,7 @@ WebPackConfig.entry = ['./src/main.js'];
 WebPackConfig.devtool = 'source-map';
 
 WebPackConfig.output.filename = 'bundle.js'
-WebPackConfig.output.path = __dirname + '/build/'
-
-
-WebPackConfig.plugins = [
-  new webpack.IgnorePlugin(/ReactContext/)
-]
+WebPackConfig.output.path = __dirname + '/build/';
 
 WebPackConfig.module.loaders.push({
   test: /(\.jsx|\.js)$/,
@@ -89,10 +84,10 @@ WebPackConfig.module.postcss = [
   require('postcss-color-rebeccapurple')
 ];
 
-WebPackConfig.plugins.push(
+WebPackConfig.plugins = [
   new ExtractTextPlugin('style.css', {
     allChunks: true
   })
-);
+];
 
 module.exports = WebPackConfig;
